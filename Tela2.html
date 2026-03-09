@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kumana</title>
+</head>
+<body>
+    <main class="login-container">
+        <div class="card">
+            <div class="header-green">
+                <h1>Criar conta</h1>
+            </div>
+
+            <div class="content">
+                <p class="tagline">Junte-se a comunidade do seu bairro</p>
+                
+                <div class="icon-box">
+                    <img src="maos.webp" alt="Aperto de mãos">
+                </div>
+
+                <form id="registerForm">
+                    <div class="input-group">
+                        <label>Nome completo</label>
+                        <input type="text" id="fullname" placeholder="Escreva o seu nome" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Cidade</label>
+                        <input type="text" id="city" placeholder="Sua cidade" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Email</label>
+                        <input type="text" id="email" placeholder="Insira seu email" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Senha</label>
+                        <input type="password" id="password" placeholder="Insira sua senha" required>
+                    </div>
+
+                    <p id="error-message" class="error-text"></p>
+                    
+                    <button type="submit" class="btn-primary">Criar conta</button>
+                </form>
+
+                <p class="footer-text">
+                    já tem conta? <a href="telalogin.html">Entrar</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <style>
+        :root {
+    --verde-primario: #1a6935;
+    --fundo-cinza: #f0f2f5;
+    --branco: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: #d1d1d1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 10px;
+}
+
+.card {
+    background-color: var(--fundo-cinza);
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    min-height: 90vh;
+    border-radius: 40px;
+    border: 1px solid #aaa;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.header-green {
+    background-color: var(--verde-primario);
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.header-green h1 {
+    color: var(--branco);
+    font-size: 2rem;
+}
+
+.content {
+    flex: 1;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tagline {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.icon-box img {
+    width: 80px;
+    margin-bottom: 20px;
+}
+
+form { width: 100%; }
+
+.input-group {
+    width: 100%;
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 0.95rem;
+}
+
+.btn-primary {
+    width: 100%;
+    background-color: var(--verde-primario);
+    color: var(--branco);
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.error-text {
+    color: red;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+    display: none;
+}
+
+.footer-text {
+    margin-top: auto;
+    padding: 20px 0;
+    font-size: 0.95rem;
+}
+
+.footer-text a {
+    color: #008cff;
+    text-decoration: none;
+    font-weight: bold;
+}
+    </style>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('fullname').value;
+    const city = document.getElementById('city').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const errorDisplay = document.getElementById('error-message');
+
+    if (!email.includes('@') || !email.includes('.')) {
+        errorDisplay.textContent = "Email inválido! Deve conter '@' e '.'";
+        errorDisplay.style.display = "block";
+        return;
+    }
+
+    const userData = {
+        name: name,
+        city: city,
+        email: email,
+        password: password
+    };
+
+   
+    localStorage.setItem('usuarioLogado', JSON.stringify(userData));
+
+    window.location.href = "tela3.html";
+});
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+body {
+    background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+
+.container {
+    width: 100%;
+    max-width: 750px;
+    background: #4A9DB0;
+    border-radius: 25px;
+    padding: 35px 30px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+
+h2 {
+    color: #0E6631;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 25px;
+    position: relative;
+    animation: slideIn 1s ease forwards;
+}
+
+
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: textFade 1s ease forwards;
+}
+
+p:nth-of-type(1) { animation-delay: 0.3s; }
+p:nth-of-type(2) { animation-delay: 0.6s; }
+p:nth-of-type(3) { animation-delay: 0.9s; }
+
+@keyframes textFade {
+    to { opacity: 1; transform: translateY(0);}
+}
+
+
+
+.voltar-btn {
+    display: inline-block;
+    text-decoration: none;
+    background: #0E6631;
+    color: #fff;
+    font-weight: 600;
+    padding: 14px 30px;
+    border-radius: 12px;
+    margin-top: 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+    animation: fadeInBtn 1s ease forwards;
+}
+
+.voltar-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    background: #0a321a;
+}
+
+
+
+footer {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+
+</style>
+</head>
+<body>
+    <main class="container">
+        <section id="sobre">
+            <h2>O que é o Kumana?</h2>
+            <p>
+                O <strong>Kumana</strong> é um aplicativo pensado como uma plataforma digital que conecta pessoas, serviços e ideias de forma simples, rápida e acessível.
+                Ele foi criado para facilitar a comunicação e fortalecer a colaboração dentro de uma comunidade.
+            </p>
+            <p>
+                O Kumana é uma plataforma digital criada para apoiar pessoas e comunidades no seu desenvolvimento pessoal e organizacional, oferecendo soluções simples e acessíveis.
+            </p>
+            <p>Um aplicativo onde pessoas <strong>pedem ajuda</strong> (serviço, aprendizagem ou apoio) e outras pessoas <strong>oferecem ajuda ou ensinam.</strong></p>
+
+            <a href="Tela3.html" class="voltar-btn">Voltar</a>
+        </section>
+        <footer>&copy; 2026 - Kumana</footer>
+    </main>
+</body>
+</html>

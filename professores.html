@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços Disponíveis</title>
+</head>
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+             background: #f2f4f8;
+         }
+
+        .app { 
+            max-width: 1000px;
+             margin: auto; 
+             padding: 20px;
+             }
+
+        .header { 
+            text-align: center; 
+            font-size: 1.8rem; 
+            margin-bottom: 15px;
+         }
+
+        .busca {
+             width: 100%;
+             padding: 10px;
+              margin-bottom: 15px;
+               border-radius: 8px; 
+               border: 1px solid #ccc;
+             }
+
+        .filtros { 
+            display: flex; 
+            flex-wrap: wrap;
+             gap: 10px;
+             justify-content: center; 
+            margin-bottom: 20px;
+         }
+
+        .filtros button { 
+            padding: 8px 14px; 
+            border-radius: 20px;
+             border: none; 
+             cursor: pointer;
+              background: #e5e7eb;
+             }
+
+        .filtros button.ativo {
+             background: #4f46e5; 
+             color: white; 
+            }
+
+
+        .professores { 
+            display: flex; 
+            flex-wrap: wrap;
+             gap: 15px; 
+             justify-content: center; 
+            }
+
+        .professor-card { 
+            flex: 1 1 250px;
+             max-width: 280px;
+              background: white; 
+              border-radius: 10px; 
+              padding: 15px; 
+              text-align: center; 
+              box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+             }
+
+        .professor-card img {
+             width: 100%; 
+             height: 150px; 
+             object-fit: cover;
+              border-radius: 8px;
+               margin-bottom: 10px;
+             }
+        .avaliacao {
+             display: block; 
+             margin: 5px 0; 
+            }
+
+        .tipo {
+             display: inline-block;
+              padding: 4px 10px; 
+              border-radius: 12px;
+               font-size: 0.8rem; 
+               margin-bottom: 10px; 
+            }
+
+        .online { 
+            background: #dcfce7;
+             color: #166534; 
+            }
+
+        .presencial {
+             background: #fee2e2;
+              color: #991b1b; 
+            }
+
+        .contato-btn {
+             display: block; 
+             width: 100%; 
+             padding: 8px;
+             margin-top: 5px;
+             border-radius: 8px;
+             text-align: center; 
+             background: #4f46e5;
+             color: white; 
+            text-decoration: none; 
+            font-weight: bold;
+         }
+
+        .contato-btn:hover {
+             background: #3730a3;
+             }
+
+        .voltar { 
+            display: block;
+             width: fit-content;
+              margin: 30px auto 0; 
+              padding: 10px 26px; 
+              border-radius: 8px; 
+              background: #111827;
+               color: white; 
+               text-decoration: none;
+                text-align: center; 
+                font-size: 1rem;
+             }
+
+        .voltar:hover { 
+            background: #1f2937;
+         }
+
+        footer {
+             text-align: center; 
+             padding: 15px; 
+             color: #666; 
+             margin-top: 20px; }
+    </style>
+</head>
+<body>
+<div class="app">
+    <div class="header">📚 Serviços Disponíveis</div>
+
+    <input type="text" id="busca" placeholder="🔍 Buscar serviço ou profissional..." class="busca">
+
+    <div class="filtros">
+        <button data-filtro="todos" class="ativo">Todos</button>
+        <button data-filtro="educacao">Educação</button>
+        <button data-filtro="tecnologia">Tecnologia</button>
+        <button data-filtro="gastronomia">Gastronomia</button>
+        <button data-filtro="beleza">Beleza</button>
+        <button data-filtro="servicos">Serviços Gerais</button>
+        <button data-filtro="artesanato">Artesanato</button>
+    </div>
+
+    <div class="professores">
+        <div class="professor-card" data-categoria="educacao" data-nome="Maria Silva">
+            <img src="img/maria.jpg" alt="Maria Silva">
+            <h3>Maria Silva</h3>
+            <p>Matemática • Ensino Médio</p>
+            <span class="avaliacao">⭐⭐⭐⭐⭐</span>
+            <span class="tipo online">Online</span>
+             <a href="TelaSMS.html" class="contato-btn">Entrar em contacto</a>
+        </div>
+
+        <div class="professor-card" data-categoria="tecnologia" data-nome="Aurelio dos Santos">
+            <img src="img/carlos.jpg" alt="Aurelio dos Santos">
+            <h3>Aurelio dos Santos</h3>
+            <p>Programação • Sites e Apps</p>
+            <span class="avaliacao">⭐⭐⭐⭐⭐</span>
+            <span class="tipo online">Online</span>
+            <a href="chat.html?profissional=Aurelio%20dos%20Santos" class="contato-btn">Entrar em contacto</a>
+        </div>
+
+        <div class="professor-card" data-categoria="tecnologia" data-nome="Arlindo Joao">
+            <img src="img/paulo.jpg" alt="Arlindo Joao">
+            <h3>Arlindo Joao</h3>
+            <p>Informática • Manutenção e Redes</p>
+            <span class="avaliacao">⭐⭐⭐⭐☆</span>
+            <span class="tipo presencial">Presencial</span>
+            <a href="chat.html?profissional=Arlindo%20Joao" class="contato-btn">Entrar em contacto</a>
+        </div>
+
+        <div class="professor-card" data-categoria="gastronomia" data-nome="Nilda Bartolomeu">
+            <img src="img/carla.jpg" alt="Nilda Bartolomeu">
+            <h3>Nilda Bartolomeu</h3>
+            <p>Confeitaria • Bolos Artísticos</p>
+            <span class="avaliacao">⭐⭐⭐⭐⭐</span>
+            <span class="tipo presencial">Presencial</span>
+            <a href="chat.html?profissional=Nilda%20Bartolomeu" class="contato-btn">Entrar em contacto</a>
+        </div>
+
+        <div class="professor-card" data-categoria="beleza" data-nome="Davi dos Santos">
+            <img src="img/larissa.jpg" alt="Davi dos Santos">
+            <h3>Davi dos Santos</h3>
+            <p>Make-up • Eventos e Noivas</p>
+            <span class="avaliacao">⭐⭐⭐⭐⭐</span>
+            <span class="tipo presencial">Presencial</span>
+            <a href="chat.html?profissional=Davi%20dos%20Santos" class="contato-btn">Entrar em contacto</a>
+        </div>
+
+        <div class="professor-card" data-categoria="servicos" data-nome="Juliana Rocha">
+            <img src="img/juliana.jpg" alt="Juliana Rocha">
+            <h3>Juliana Rocha</h3>
+            <p>Limpeza • Residencial e Escritórios</p>
+            <span class="avaliacao">⭐⭐⭐⭐☆</span>
+            <span class="tipo presencial">Presencial</span>
+            <a href="chat.html?profissional=Juliana%20Rocha" class="contato-btn">Entrar em contacto</a>
+        </div>
+
+        <div class="professor-card" data-categoria="servicos" data-nome="Roberto Santos">
+            <img src="img/roberto.jpg" alt="Roberto Santos">
+            <h3>Roberto Santos</h3>
+            <p>Mecânica • Automóveis e Motos</p>
+            <span class="avaliacao">⭐⭐⭐⭐⭐</span>
+            <span class="tipo presencial">Presencial</span>
+            <a href="chat.html?profissional=Roberto%20Santos" class="contato-btn">Entrar em contacto</a>
+        </div>
+
+        <div class="professor-card" data-categoria="artesanato" data-nome="Renata Pires">
+            <img src="img/renata.jpg" alt="Renata Pires">
+            <h3>Renata Pires</h3>
+            <p>Artesanato • Bordado & Crochê</p>
+            <span class="avaliacao">⭐⭐⭐⭐☆</span>
+            <span class="tipo online">Online</span>
+            <a href="chat.html?profissional=Renata%20Pires" class="contato-btn">Entrar em contacto</a>
+        </div>
+    </div>
+
+    <a href="aprender.html" class="voltar">⬅ Voltar</a>
+</div>
+
+<footer>&copy; 2026 - Kumana</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const buscaInput = document.getElementById("busca");
+    const botoesFiltro = document.querySelectorAll(".filtros button");
+    const cards = document.querySelectorAll(".professor-card");
+
+    let filtroAtual = "todos";
+
+    function filtrarCards() {
+        const textoBusca = buscaInput.value.toLowerCase();
+
+        cards.forEach(card => {
+            const nome = card.querySelector("h3").textContent.toLowerCase();
+            const descricao = card.querySelector("p").textContent.toLowerCase();
+            const categoria = card.dataset.categoria;
+
+            const correspondeBusca = nome.includes(textoBusca) || descricao.includes(textoBusca);
+            const correspondeFiltro = filtroAtual === "todos" || categoria === filtroAtual;
+
+            card.style.display = (correspondeBusca && correspondeFiltro) ? "block" : "none";
+        });
+    }
+
+    buscaInput.addEventListener("input", filtrarCards);
+
+    botoesFiltro.forEach(botao => {
+        botao.addEventListener("click", function () {
+            botoesFiltro.forEach(btn => btn.classList.remove("ativo"));
+            this.classList.add("ativo");
+            filtroAtual = this.dataset.filtro;
+            filtrarCards();
+        });
+    });
+});
+</script>
+</body>
+</html>

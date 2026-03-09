@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kumana</title>
+</head>
+<body>
+    <style>
+        /* Base e Cores */
+        :root {
+            --primary: #00B894;
+            --secondary: #0984E3;
+            --dark: #2F7D5C;
+            --white: #ffffff;
+            --gray: #f4f7f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .help-container {
+            background: var(--white);
+            border-radius: 25px;
+            padding: 35px;
+            width: 100%;
+            max-width: 550px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+            text-align: center;
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 25px;
+        }
+
+        /* Form Estilo */
+        .form label {
+            display: block;
+            text-align: left;
+            font-weight: 600;
+            color: var(--dark);
+            margin: 15px 0 5px;
+        }
+
+        .form input, .form select {
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            border: 2px solid #eee;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .form input:focus, .form select:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 10px rgba(9, 132, 227, 0.2);
+        }
+
+        /* Campo extra escondido */
+        #extra-bairro {
+            display: none;
+            margin-top: 10px;
+            border-color: var(--primary);
+        }
+
+        /* Área de Mídia */
+        .media-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .media-btn { display: none; }
+
+        .btn-file {
+            flex: 1;
+            padding: 12px;
+            background: #f0f2f5;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+            border: 2px dashed #ccc;
+        }
+
+        .btn-file:hover { background: #e2e6ea; border-color: var(--secondary); }
+
+        /* Preview da Imagem */
+        #preview-container {
+            margin-top: 15px;
+            display: none;
+        }
+
+        #preview-img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 3px solid var(--gray);
+        }
+
+        /* Botões */
+        .btn-group {
+            margin-top: 30px;
+            display: grid;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 16px;
+            border-radius: 15px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .btn-back {
+            background: #eee;
+            color: #666;
+        }
+
+        .btn:hover { transform: translateY(-2px); opacity: 0.9; }
+
+        /* Responsividade */
+        @media (max-width: 480px) {
+            .help-container { padding: 25px 20px; border-radius: 0; height: 100vh; max-width: 100%; }
+            body { padding: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="help-container">
+        <header class="header">🤝 Pedir Ajuda</header>
+
+        <form class="form" id="helpForm">
+            <label for="pedido">O que você precisa?</label>
+            <input type="text" id="pedido" placeholder="Ex: Preciso de ajuda com compras" required>
+
+            <label for="bairro">Localização</label>
+            <select id="bairro" onchange="checkBairro(this.value)" required>
+                <option value="">Escolha o seu bairro</option>
+                <option value="Triangulo">Triangulo</option>
+                <option value="Ontupaia">Ontupaia</option>
+                <option value="Mocone">Mocone</option>
+                <option value="Baixa">Baixa</option>
+                <option value="Cidade Alta">Cidade Alta</option>
+                <option value="Pousada">Pousada</option>
+                <option value="Outro">Outro</option>
+            </select>
+            <input type="text" id="extra-bairro" placeholder="Digite o nome do bairro">
+
+            <label>Evidência (Opcional)</label>
+            <div class="media-buttons">
+                <input type="file" id="foto" class="media-btn" accept="image/*" onchange="previewMedia(event)">
+                <label for="foto" class="btn-file">📷 Foto</label>
+                
+                <input type="file" id="video" class="media-btn" accept="video/*">
+                <label for="video" class="btn-file">🎥 Vídeo</label>
+            </div>
+
+            <div id="preview-container">
+                <p style="font-size: 0.8rem; color: var(--dark); margin-bottom: 5px;">Pré-visualização:</p>
+                <img id="preview-img" src="" alt="Preview">
+            </div>
+
+            <div class="btn-group">
+                <button type="submit" class="btn btn-submit" id="submitBtn">Publicar Pedido</button>
+                <a href="Tela3.html" class="btn btn-back">Voltar</a>
+            </div>
+        </form>
+
+        <footer style="margin-top: 20px; font-size: 0.8rem; color: #999;">&copy; 2026 - Kumana</footer>
+    </main>
+
+    <script>
+    // 1. Mostrar campo extra se escolher "Outro"
+    function checkBairro(val) {
+        const extraInput = document.getElementById('extra-bairro');
+        if(val === 'Outro') {
+            extraInput.style.display = 'block';
+            extraInput.required = true;
+            extraInput.focus();
+        } else {
+            extraInput.style.display = 'none';
+            extraInput.required = false;
+        }
+    }
+
+    // 2. Pré-visualização da Imagem
+    function previewMedia(event) {
+        const container = document.getElementById('preview-container');
+        const img = document.getElementById('preview-img');
+        const file = event.target.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                img.src = e.target.result;
+                container.style.display = 'block';
+            }
+            reader.readAsDataURL(file);
+        }
+    }
+
+    // 3. Lógica de Envio e Redirecionamento
+    document.getElementById('helpForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const btn = document.getElementById('submitBtn');
+        
+        // Efeito visual de carregamento
+        btn.innerHTML = "Publicando... ⏳";
+        btn.style.opacity = "0.7";
+        btn.disabled = true;
+
+        // Simulação de processamento (1.5 segundos)
+        setTimeout(() => {
+            const pedido = document.getElementById('pedido').value;
+            
+            // Criamos um alerta personalizado ou usamos o do sistema
+            alert(`✅ Sucesso!\nSeu pedido de "${pedido}" foi publicado. Vamos levar você de volta à página principal.`);
+            
+            // REDIRECIONAMENTO PARA A PÁGINA PRINCIPAL
+            // Certifique-se de que o nome do arquivo da sua home é 'index.html' ou 'Tela3.html'
+            window.location.href = "tela3.html"; 
+            
+        }, 1500);
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+    <section id="funcionalidades">
+    <h2>O que você pode fazer no Kumana</h2>
+    <ul>
+        <li>Aprender novas habilidades através de partilhas e mini-aulas da comunidade</li>
+        <li>Ensinar o que você sabe e ajudar outras pessoas do seu bairro</li>
+        <li>Divulgar e encontrar oportunidades de trabalho e serviços locais</li>
+        <li>Pedir ou oferecer ajuda de forma rápida e segura</li>
+        <li>Conectar moradores, fortalecendo a economia e o apoio comunitário</li>
+    </ul>
+
+    <a href="Tela3.html" class="btn-voltar">← Voltar</a>
+</section>
+
+</main>
+
+</body>
+</html>
+
+
+<style>
+/* RESET + BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0984E3, #00CEC9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #2d3436;
+}
+
+/* CONTAINER */
+main {
+    width: 100%;
+    max-width: 760px;
+}
+
+/* CARD FUNCIONALIDADES */
+#funcionalidades {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(10px);
+    padding: 32px;
+    border-radius: 22px;
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.15);
+    animation: slideUp 0.8s ease;
+}
+
+/* TÍTULO */
+#funcionalidades h2 {
+    text-align: center;
+    font-size: clamp(1.6rem, 4vw, 2.3rem);
+    color: #6C5CE7;
+    margin-bottom: 26px;
+}
+
+/* LISTA */
+#funcionalidades ul {
+    list-style: none;
+    display: grid;
+    gap: 18px;
+}
+
+/* ITENS */
+#funcionalidades li {
+    background: linear-gradient(135deg, #6C5CE7, #0984E3);
+    color: #ffffff;
+    padding: 16px 20px;
+    border-radius: 14px;
+    font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ÍCONE (PURO CSS) */
+#funcionalidades li::before {
+    content: "✔";
+    background-color: #00CEC9;
+    color: #2d3436;
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* HOVER */
+#funcionalidades li:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.25);
+}
+
+.btn-voltar {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 22px;
+    background: #0984E3;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 14px;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-voltar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* ANIMAÇÃO */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 📱 MOBILE */
+@media (max-width: 480px) {
+    #funcionalidades {
+        padding: 24px;
+        border-radius: 18px;
+    }
+
+    #funcionalidades li {
+        padding: 14px 16px;
+    }
+}
+
+/* 💻 DESKTOP */
+@media (min-width: 1024px) {
+    body {
+        padding: 60px;
+    }
+}
+
+</style>

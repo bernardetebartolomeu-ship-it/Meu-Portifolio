@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missao</title>
+</head>
+<body>
+    <main>
+        <section id="missao">
+    <h2>Missao, Visao e Valores</h2>
+    <p><strong>Missao:</strong>Ajudar pessoas que querem aprender algo. Ajudar pessoas que precisam de servicos rapidos.</p>
+    <p><strong>Visao:</strong>Ser uma plataforma acessivel com impacto positivo.</p>
+    <p><strong>Valores:</strong>Simplicidade, inclusao, inovacao e responsabilidade.</p>
+</section>
+    </main>
+    
+        
+            <a href="Tela3.html">Voltar</a>
+</body>
+</html>
+<style>
+    /* RESET + BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #00B894, #0984E3);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #2d3436;
+}
+
+/* CONTAINER */
+main {
+    width: 100%;
+    max-width: 720px;
+}
+
+/* CARD */
+#missao {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    animation: fadeUp 0.8s ease;
+}
+
+/* TÍTULO */
+#missao h2 {
+    text-align: center;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    color: #6C5CE7;
+    margin-bottom: 25px;
+}
+
+/* TEXTO */
+#missao p {
+    font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+    line-height: 1.8;
+    margin-bottom: 16px;
+}
+
+/* DESTAQUES */
+#missao strong {
+    color: #0984E3;
+}
+
+/* BOTÃO VOLTAR */
+a {
+    display: inline-block;
+    margin-top: 30px;
+    background: linear-gradient(135deg, #6C5CE7, #0984E3);
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* HOVER */
+a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* CENTRALIZA LINK */
+body > a {
+    margin-top: 20px;
+}
+
+/* ANIMAÇÃO */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+</style>

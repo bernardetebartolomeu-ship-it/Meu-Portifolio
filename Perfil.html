@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil usuario</title>
+</head>
+<body>
+  
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #a29bfe;
+            --bg: #0f172a;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text: #f8fafc;
+            --danger: #ff7675;
+            --warning: #fab1a0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            background-image: radial-gradient(circle at top right, #1e293b, #0f172a);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        
+        .perfil-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+            max-width: 450px;
+            border-radius: 24px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        
+        .avatar-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+        }
+
+        .avatar-container img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid var(--primary);
+            padding: 5px;
+            object-fit: cover;
+        }
+
+        .status-online {
+            position: absolute;
+            bottom: 10px;
+            right: 5px;
+            width: 18px;
+            height: 18px;
+            background: #00b894;
+            border: 3px solid var(--bg);
+            border-radius: 50%;
+        }
+
+        h2 { font-size: 1.8rem; margin-bottom: 5px; }
+        .username-tag { color: var(--secondary); font-size: 0.9rem; margin-bottom: 25px; display: block; }
+
+        
+        .info-list {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid transparent;
+            transition: 0.3s;
+        }
+
+        .info-item:hover {
+            border-color: var(--primary);
+            background: rgba(108, 92, 231, 0.1);
+        }
+
+        .info-label { color: #94a3b8; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        .info-value { font-weight: 500; font-size: 0.95rem; }
+
+        
+        .actions { display: grid; gap: 12px; }
+
+        .btn {
+            padding: 14px;
+            border-radius: 12px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1rem;
+        }
+
+        .btn-main { background: var(--primary); color: white; }
+        .btn-outline { background: transparent; border: 1px solid #475569; color: var(--text); }
+        .btn-danger { background: rgba(255, 118, 117, 0.1); color: var(--danger); border: 1px solid var(--danger); }
+
+        .btn:hover { transform: translateY(-2px); filter: brightness(1.2); }
+        .btn-danger:hover { background: var(--danger); color: white; }
+
+        .btn-voltar {
+            position: absolute;
+            top: -50px;
+            left: 0;
+            color: var(--secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        
+        @media (max-width: 480px) {
+            .perfil-card { padding: 20px; border-radius: 0; height: 100vh; max-width: 100%; display: flex; flex-direction: column; justify-content: center;}
+            body { padding: 0; }
+            .btn-voltar { top: 20px; left: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div style="position: relative;">
+        <a href="Tela3.html" class="btn-voltar">← Voltar para Início</a>
+        
+        <div class="perfil-card">
+            <div class="avatar-container">
+                <img id="user-photo" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="User">
+                <div class="status-online"></div>
+            </div>
+
+            <h2 id="display-name">Carregando...</h2>
+            <span class="username-tag" id="display-username">@usuario</span>
+
+            <div class="info-list">
+                <div class="info-item">
+                    <span class="info-label">E-mail</span>
+                    <span class="info-value" id="display-email">---</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Contacto</span>
+                    <span class="info-value" id="display-phone">---</span>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button onclick="editarPerfil()" class="btn btn-main">Editar Perfil</button>
+                <button onclick="trocarConta()" class="btn btn-outline">Trocar Conta</button>
+                <button onclick="logout()" class="btn btn-danger">Terminar Sessão</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        
+       
+        const dadosUsuario = {
+            nome: "João Alberto",
+            email: "joao.alberto@kumana.com",
+            telemovel: "+258 84 123 4567",
+            username: "@joao_dev26"
+        };
+
+       
+        function carregarPerfil() {
+            document.getElementById('display-name').innerText = dadosUsuario.nome;
+            document.getElementById('display-email').innerText = dadosUsuario.email;
+            document.getElementById('display-phone').innerText = dadosUsuario.telemovel;
+            document.getElementById('display-username').innerText = dadosUsuario.username;
+        }
+
+        function editarPerfil() {
+            const novoNome = prompt("Digite o novo nome:", dadosUsuario.nome);
+            if (novoNome) {
+                dadosUsuario.nome = novoNome;
+                carregarPerfil();
+                alert("Perfil atualizado com sucesso!");
+            }
+        }
+
+        function trocarConta() {
+            if(confirm("Deseja sair para entrar com outra conta?")) {
+                window.location.href = "login.html";
+            }
+        }
+
+        function logout() {
+            if(confirm("Tem certeza que deseja terminar a sessão?")) {
+                alert("Sessão encerrada!");
+                window.location.href = "login.html";
+            }
+        }
+
+        window.onload = carregarPerfil;
+    </script>
+
+</body>
+</html>

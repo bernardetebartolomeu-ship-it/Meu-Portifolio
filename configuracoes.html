@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuracoes</title>
+</head>
+<body>
+   
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background-image: url(bern.jpg);
+    min-height:100vh;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:16px;
+}
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.config-card{
+    background:#fff;
+    border-radius:12px;
+    padding:16px;
+    margin-bottom:16px;
+}
+
+.config-card label{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:10px;
+}
+
+button{
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    background:#007bff;
+    color:#fff;
+    cursor:pointer;
+    margin-top:12px;
+}
+
+button:hover{
+    background:#0056b3;
+}
+
+footer{
+    text-align:center;
+    margin-top:30px;
+    color:#555;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<header class="header">
+    <h1>Configurações</h1>
+    <a href="index.html">Voltar</a>
+</header>
+
+<div class="config-card">
+    <h3>Preferências</h3>
+
+    <label>
+        Notificações
+        <input type="checkbox" checked>
+    </label>
+
+    <label>
+        Modo Escuro
+        <input type="checkbox" id="darkMode">
+    </label>
+
+    <button onclick="salvar()">Salvar Alterações</button>
+</div>
+
+<footer>&copy; 2026 - Kumana</footer>
+
+</div>
+
+<script>
+function salvar(){
+    alert("Configurações salvas com sucesso!");
+}
+</script>
+
+
+    
+</body>
+</html>

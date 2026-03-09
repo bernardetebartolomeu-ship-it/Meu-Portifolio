@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)file:///C:/Bernardete%20aulaHtml/Projecto/TelaLogin.html -->
+<html lang="pt"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kumana</title>
+</head>
+<body>
+    <main class="login-container">
+        <div class="card">
+            <div class="header-green">
+                <h1>Kumana</h1>
+            </div>
+
+            <div class="content">
+                <p class="tagline">O que acontece no seu bairro importa</p>
+                
+                <div class="icon-box">
+                    <img src="./Kumana_files/maos.webp" alt="Aperto de mãos">
+                </div>
+
+                <form id="loginForm">
+                    <input type="text" placeholder="Telefone ou email" required="">
+                    <input type="password" placeholder="Insira a senha" required="">
+                    <button type="submit" class="btn-entrar">Entrar</button>
+                </form>
+
+                <p class="signup-text">
+                    Não tem conta? <a href="file:///C:/Bernardete%20aulaHtml/Projecto/Tela2.html">Criar conta</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+<style>
+    :root {
+    --verde-kumana: #1a6935;
+    --cinza-fundo: #f0f2f5;
+    --branco: #ffffff;
+    --texto-escuro: #444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #e9ecef;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Garante que ocupe a altura toda da tela */
+    padding: 10px;
+}
+
+/* Container que se adapta */
+.login-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* O Card inspirado no iPhone da imagem */
+.card {
+    background-color: var(--cinza-fundo);
+    width: 100%;
+    max-width: 400px; /* Largura máxima para desktop */
+    min-height: 85vh; /* Altura proporcional */
+    border-radius: 40px; /* Bordas bem arredondadas como na foto */
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Cabeçalho Verde */
+.header-green {
+    background-color: var(--verde-kumana);
+    padding: 45px 20px;
+    text-align: center;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.header-green h1 {
+    color: var(--branco);
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+}
+
+/* Área de conteúdo */
+.content {
+    flex-grow: 1; /* Faz esta parte crescer para empurrar o rodapé se necessário */
+    padding: 30px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.tagline {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #555;
+    margin-bottom: 30px;
+    max-width: 80%;
+}
+
+.icon-box img {
+    width: 100px;
+    margin-bottom: 40px;
+}
+
+/* Formulário */
+form {
+    width: 100%;
+}
+
+input {
+    width: 100%;
+    background-color: var(--branco);
+    border: 1px solid #ddd;
+    padding: 16px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    outline: none;
+}
+
+input::placeholder {
+    color: #999;
+}
+
+.btn-entrar {
+    width: 100%;
+    background-color: var(--verde-kumana);
+    color: var(--branco);
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: opacity 0.2s;
+}
+
+.btn-entrar:active {
+    opacity: 0.8;
+}
+
+/* Texto debaixo (Footer do Card) */
+.signup-text {
+    margin-top: auto; /* Empurra para o fim do container flex */
+    padding-top: 25px;
+    font-size: 0.95rem;
+    color: #000;
+}
+
+.signup-text a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Ajustes para telas muito pequenas (ex: iPhone SE) */
+@media (max-height: 600px) {
+    .card {
+        min-height: auto;
+        border-radius: 20px;
+    }
+    .header-green { padding: 25px; }
+    .icon-box img { width: 60px; margin-bottom: 15px; }
+}
+</style>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const user = document.getElementById('user').value;
+    const pass = document.getElementById('password').value;
+
+    if(user && pass) {
+        alert('Tentando conectar com: ' + user);
+        // Aqui você adicionaria a lógica de autenticação real
+    } else {
+        alert('Por favor, preencha todos os campos.');
+    }
+});
+
+
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const email = event.target.querySelector('input[type="text"]').value;
+    
+    window.location.href = "tela3.html";
+});
+</script>
+    
+
+
+</body></html>

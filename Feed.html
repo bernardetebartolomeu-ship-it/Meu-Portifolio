@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kumana - Feed da Comunidade</title>
+    <style>
+        :root {
+            --bg: #f0f2f5;
+            --white: #ffffff;
+            --primary: #00B894;
+            --secondary: #0984E3;
+            --text-main: #1c1e21;
+            --text-sub: #65676b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            padding-bottom: 70px; 
+        }
+
+        .feed-header {
+            background: var(--white);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .feed-header h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        .btn-voltar {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .feed-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        .post-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .user-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            margin-right: 12px;
+            background: #eee;
+        }
+
+        .user-info h4 { font-size: 1rem; }
+        .user-info span { font-size: 0.8rem; color: var(--text-sub); }
+
+        .post-content {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .post-tag {
+            display: inline-block;
+            background: rgba(9, 132, 227, 0.1);
+            color: var(--secondary);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .post-image {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .post-actions {
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .action-btn {
+            background: none;
+            border: none;
+            color: var(--text-sub);
+            font-weight: 600;
+            cursor: pointer;
+            padding: 8px;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .action-btn:hover { background: #f2f2f2; border-radius: 5px; color: var(--primary); }
+
+    
+        @media (max-width: 480px) {
+            .feed-container { margin: 10px auto; padding: 0 10px; }
+            .feed-header h1 { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="feed-header">
+        <a href="Tela3.html" class="btn-voltar">← Voltar</a>
+        <h1>Kumana Feed</h1>
+        <div style="width: 40px;"></div> </header>
+
+    <main class="feed-container" id="feed-lista">
+        </main>
+
+    <script>
+        const posts = [
+            {
+                id: 1,
+                autor: "Maria Antónia",
+                bairro: "Triangulo",
+                tempo: "5 min atrás",
+                texto: "Preciso de alguém que possa me ajudar a carregar umas caixas pesadas hoje à tarde. Alguém disponível?",
+                tipo: "Ajuda Física",
+                imagem: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&q=80&w=500"
+            },
+            {
+                id: 2,
+                autor: "Carlos Manuel",
+                bairro: "Baixa",
+                tempo: "20 min atrás",
+                texto: "Estou oferecendo explicações gratuitas de Matemática para alunos do 10º ano. Quem precisar, mande mensagem!",
+                tipo: "Educação",
+                imagem: ""
+            },
+            {
+                id: 3,
+                autor: "João Alberto",
+                bairro: "Mocone",
+                tempo: "1 hora atrás",
+                texto: "Obrigado à comunidade! Consegui a ajuda que precisava para consertar o meu telhado. Kumana é incrível! 🙌",
+                tipo: "Gratidão",
+                imagem: "https://images.unsplash.com/photo-1505798577917-a65157d3320a?auto=format&fit=crop&q=80&w=500"
+            }
+        ];
+
+        function carregarFeed() {
+            const container = document.getElementById('feed-lista');
+            
+            posts.forEach(post => {
+                const postHTML = `
+                    <article class="post-card">
+                        <div class="post-header">
+                            <img src="https://ui-avatars.com/api/?name=${post.autor}&background=random" class="user-avatar" alt="Avatar">
+                            <div class="user-info">
+                                <h4>${post.autor}</h4>
+                                <span>${post.tempo} • ${post.bairro}</span>
+                            </div>
+                        </div>
+                        
+                        <span class="post-tag">${post.tipo}</span>
+                        <p class="post-content">${post.texto}</p>
+                        
+                        ${post.imagem ? `<img src="${post.imagem}" class="post-image">` : ''}
+                        
+                        <div class="post-actions">
+                            <button class="action-btn" onclick="interagir('Ajudar', '${post.autor}')">🤝 Ajudar</button>
+                            <button class="action-btn" onclick="interagir('Comentar', '${post.autor}')">💬 Comentar</button>
+                            <button class="action-btn" onclick="interagir('Partilhar', '${post.autor}')">↗️ Partilhar</button>
+                        </div>
+                    </article>
+                `;
+                container.innerHTML += postHTML;
+            });
+        }
+
+        function interagir(acao, nome) {
+            alert(`${acao} o post de ${nome}. Esta funcionalidade estará disponível em breve!`);
+        }
+
+        window.onload = carregarFeed;
+    </script>
+</body>
+</html>

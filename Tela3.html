@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kumana</title>
+</head>
+<body>
+    <main class="home-container">
+
+        
+        <header class="header">
+            <h1>Kumana</h1>
+
+            <nav class="nav-icons">
+                <a href="TelaSMS.html" title="Mensagens">
+                    <img src="https://cdn-icons-png.flaticon.com/512/725/725643.png" alt="Mensagens">
+                </a>
+                <a href="Notificacoes.html" title="Notificações">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1827/1827392.png" alt="Notificações">
+                </a>
+                <a href="configuracoes.html" title="Configurações">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2099/2099058.png" alt="Configurações">
+                </a>
+            </nav>
+        </header>
+
+        
+        <section class="perfil-usuario">
+            <a href="perfil.html" class="perfil-link">
+                <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Avatar" class="avatar">
+                <div class="user-info">
+                    <h3>Olá, João!</h3>
+                    <p>Ver perfil</p>
+                </div>
+            </a>
+        </section>
+
+        <nav class="ponto">
+            <a href="sobre.html">Sobre</a>
+            <a href="objectivo.html">Objectivos</a>
+            <a href="missao.html">Missao</a>
+            <a href="fun.html">Funcionalidades</a>
+            
+        </nav>
+        <section class="logo-section">
+            <img src="Cerebro.png" alt="Comunidade" class="logo-img">
+            <h2>Ajudando a nossa comunidade</h2>
+        </section>
+
+        
+        <section class="menu">
+            <a href="pedir-ajudar.html" class="card azul">
+                <img src="images.jpg" alt="Pedir ajuda">
+                <span>Pedir Ajuda</span>
+            </a>
+
+            <a href="aprender.html" class="card verde">
+                <img src="caderno.png" alt="Aprender algo">
+                <span>Aprender Algo</span>
+            </a>
+
+            <a href="oferecer.html" class="card laranja">
+                <img src="ferramenta.png" alt="Oferecer serviço">
+                <span>Oferecer Serviço</span>
+            </a>
+            
+
+            
+
+        </section>
+
+        <footer>
+            &copy; 2026 - Kumana
+        </footer>
+    </main>
+    
+</body>
+</html>
+
+<style>
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #F0F2F5;
+    min-height: 100vh;
+}
+
+
+.home-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 16px;
+    
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 1.8rem;
+}
+
+.nav-icons img {
+    width: 28px;
+    margin-left: 12px;
+}
+
+
+.perfil-usuario {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+.perfil-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    margin-right: 12px;
+}
+
+
+.ponto {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.ponto a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+
+.logo-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo-img {
+    width: 120p;
+    max-width: 400px;
+    border-radius: 12px;
+}
+
+.logo-section h2 {
+    margin-top: 12px;
+}
+
+
+.menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform:translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0,0, 0.25);
+}
+
+.card img {
+    width: 60px;
+    margin-bottom: 10px;
+}
+
+.azul { background: #0984e3; }
+.verde { background: #00B894; }
+.laranja { background: #fd9644; }
+
+
+footer {
+    text-align: center;
+    padding: 16px;
+    color: #555;
+}
+
+.feed-btn {
+    background-color: #0b5fa5;
+    color: white;
+    border: none;
+    padding: 18px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: auto; 
+}
+
+.card:active, .feed-btn:active { transform: scale(0.95); }
+ 
+</style>
