@@ -1,0 +1,191 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background-color: #0b0e14;
+    color: #e2e8f0;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 10%;
+    background: #111827;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo { font-size: 1.5rem; font-weight: bold; }
+.logo span { color: #00d2ff; }
+
+nav ul {
+     display: flex;
+     list-style: none;
+     }
+nav ul li {
+     margin-left: 25px;
+     }
+nav ul li a { 
+    color: #fff;
+     text-decoration: none; 
+     transition: 0.3s; 
+    }
+nav ul li a:hover { 
+    color: #00d2ff;
+ }
+
+
+header {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, #0b0e14 0%, #1a202c 100%);
+}
+
+.foto-perfil {
+    width: 300px;
+    height: 350px;
+    border-radius: 50%;
+    border: 5px solid #00d2ff;
+    margin-bottom: 20px;
+    object-fit: cover;
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
+}
+
+.destaque { 
+    color: #00d2ff;
+ }
+
+button {
+    margin-top: 30px;
+    padding: 12px 30px;
+    background: #00d2ff;
+    color: #0b0e14;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: #0099cc;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 210, 255, 0.4);
+}
+
+
+section { 
+    padding: 100px 15%;
+ }
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    border-left: 5px solid #00d2ff;
+    padding-left: 15px;
+}
+
+/* Layout da Grade */
+.grade-projetos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    padding-top: 20px;
+}
+
+/* O Cartão Estilo Horizonte Profissional */
+.cartao-projeto {
+    background-color: #1a202c; /* Cor escura do fundo */
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #2d3748;
+    transition: transform 0.3s ease;
+}
+
+.cartao-projeto:hover {
+    transform: translateY(-10px);
+}
+
+
+.topo-branco {
+    background-color: #ffffff;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.logo-preview {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+}
+
+.base-escura {
+    padding: 25px;
+    color: #e2e8f0;
+}
+
+.base-escura h3 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+.base-escura p {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.link-projeto {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.link-projeto:hover {
+    text-decoration: underline;
+}
+
+
+footer {
+    text-align: center;
+    padding: 50px;
+    background: #030712;
+}
+
+.redes-sociais a {
+    color: #00d2ff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+
+
+
+.copyright { 
+    margin-top: 20px; 
+    font-size: 0.8rem; 
+    opacity: 0.6; 
+}
