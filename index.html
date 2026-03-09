@@ -3,82 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Portfolio2</title>
-     <link rel="stylesheet" href="style.css">
+    <title>Kumana</title>
 </head>
 <body>
-    <nav>
-        <div class="logo">Dev<span>Portfólio</span></div>
-        <ul>
-            <li><a href="#inicio">Início</a></li>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#projetos">Projetos</a></li>
-            <li><a href="#contato">Contato</a></li>
-        </ul>
-    </nav>
 
-    <header id="inicio">
-        <div class="cabecalho-conteudo">
-            <img src="gemini.png" alt="Sua Foto" class="foto-perfil">
-            <h1>Olá, eu sou <span class="destaque">Bernardete Bartolomeu dos Santos</span></h1>
-            <p>Desenvolvedora Web | Criativa | Solucionadora de Problemas</p>
-            <button onclick="scrollParaProjetos()">Conheça meu trabalho</button>
-        </div>
-    </header>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
-    <section id="sobre">
-        <h2>Sobre Mim</h2>
-        <p>
-          Ola, sou Bernardete Bartolomeu Dos Santos, nascida aos 10 de Novembro de 2004, na cidade de Nacala-Porto.
-      Residente no bairro triangulo, casa N34 Q1.<br><br>
-      Formada em Higiene e Seguranca no Trabalho, em Informatica Basica e Programacao (especificamente na criacao de paginas web e apps).
-      Sou desenvolvedora apaixonada por tecnologia e design.<br><br>
-      Trabalho com HTML, CSS e JavaScript criando interfaces modernas,
-      performáticas e responsivas.
-      Apaixonada por transformar ideias em realidade digital.<br><br>
-       Actualmente estudante universitaria do curso de Licenciatura em Gestao de Transporte e Logistica na Universidade Rovuma, extensao de Nacala.
-        </p>
+        body {
+            background-image: url(BairroValor.avif);
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .header-card {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            background-color: #0E6631;
+            color: white;
+            padding: 25px;
+            font-size: 28px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
         
-    </section>
+        #welcomeMessage {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 40px;
+            min-height: 2.5em;
+        }
 
-   <section id="projetos">
-    <h2>Meus Projetos</h2>
-    <div class="grade-projetos">
         
-        <div class="cartao-projeto">
-            <div class="topo-branco">
-                <img src="kumana.png" alt="Logo Kumana" class="logo-preview">
-            </div>
-            <div class="base-escura">
-                <h3>Projeto Kumana</h3>
-                <p>Visa conectar pessoas com várias experiências, comunidades que precisam de ajuda e pessoas que querem aprender ou oferecer serviços.</p>
-                <a href="Projecto.html/Tela1.html" class="link-projeto">Visualizar Projeto</a>
-            </div>
-        </div>
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
 
-        <div class="cartao-projeto">
-            <div class="topo-branco">
-                <img src="SINAE.png" alt="Logo SINAE" class="logo-preview">
-            </div>
-            <div class="base-escura">
-                <h3>Projeto SINAE (Sistema Nacional de Alerta de Emergência)</h3>
-                <p>Desenvolvido em grupo, composto por 3 elementos, nomeadamente: Elves Antonio, Bruno dos Santos e Bernardete Bartolomeu.
-                    Criado para alertas de violência, calamidades naturais e outras situacoes, com o o objectivo de ajudar comunidades que em casos de um alerta, podera alertas atraves do site para as entidades competentes poderem dar assistencia. </p>
-                <a href="Trabalho em grupo/Tela(1).html" class="link-projeto">Visualizar Projeto</a>
-            </div>
-        </div>
+        .buttons button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            min-width: 140px;
+        }
 
+        .btn-login {
+            background-color: #2ecc71;
+            color: white;
+        }
+
+        .btn-login:hover {
+            background-color: #27ae60;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+
+        .btn-register {
+            background-color: #e0e0e0;
+            color: #333;
+        }
+
+        .btn-register:hover {
+            background-color: #cfcfcf;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            color: #fff;
+            background-color: rgba(0,0,0,0.3);
+        }
+
+        
+        .typed-text {
+            display: inline-block;
+            border-right: 2px solid white;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+    </style>
+
+    <div class="header-card">
+        Kumana
     </div>
-</section>
 
-    <footer id="contato">
-        <p>Vamos conversar?</p>
-        <div class="redes-sociais">
-            <a href="#">Whatsapp</a> | <a href="#">GitHub</a> | <a href="mailto:bernardetebartolomeu@gmail.com">E-mail</a>
-        </div>
-        <p class="copyright">&copy; 2026 - Desenvolvido por Bernardete Bartolomeu</p>
+    
+    <h1 id="welcomeMessage" class="typed-text"></h1>
+
+    <div class="buttons">
+        <button class="btn-login" onclick="irParaLogin()">Entrar</button>
+        <button class="btn-register" onclick="irParaCadastro()">Criar conta</button>
+    </div>
+
+    <footer>
+        © 2026 - Kumana
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        function irParaLogin() {
+            window.location.href = "TelaLogin.html";
+        }
+
+        function irParaCadastro() {
+            window.location.href = "Tela2.html";
+        }
+
+        
+        const message = "Bem-vindo ao Kumana!";
+        const welcomeElement = document.getElementById("welcomeMessage");
+        let i = 0;
+
+        function typeWriter() {
+            if (i < message.length) {
+                welcomeElement.textContent += message.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100); 
+            }
+        }
+
+        setTimeout(typeWriter, 500); 
+    </script>
+
+
 </body>
 </html>
